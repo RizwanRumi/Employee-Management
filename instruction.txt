@@ -1,0 +1,5 @@
+
+note:
+
+1.run EntityFrameworkCodeFirstExample using visual studio 2013
+2. open index.html in Employee.SPA folder using any browser
