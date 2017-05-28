@@ -1,12 +1,13 @@
   
-
+  
+  
 <div class="panel panel-success">
     <div class="panel-heading">
         <h1 class="panel-title">{{Name}} List</h1>
         <br/>
         <div class="pull-left">
 
-			<a ui-sref="contact" class="btn btn-primary"> 
+			<a ui-sref="addcontact" class="btn btn-primary"> 
 					<span class="glyphicon glyphicon-plus-sign"></span>Add new contact
 			</a>        
         </div>
@@ -14,7 +15,8 @@
         <div class="pull-right">
             <div class="dropdown">
                 <button class="btn btn-default btn-sm" type="button" data-toggle="dropdown">En
-                <span class="caret"></span></button>
+                	<span class="caret"></span>
+                </button>
                   <ul class="dropdown-menu">
                      <li><a href="#">Bn</a></li>
                   </ul>
@@ -23,45 +25,29 @@
         <hr /> 
     </div>
 	
-    <div class="panel-body">
+    <div class="panel">	
 	
 	    <div class="row">
-			<div class="col-md-12">
-				<div class="col-md-11">
-					<div class="dynamicContent">
-						<ul class="nav nav-list">
-							
-							<!-- This <li> will only add the 'active' class if 'contacts.detail' or its descendants are active
-								 AND if it is the link for the active contact (aka contactId) -->
-							<li ng-repeat="item in ContactList" >
-
-							  <!-- Here's a ui-sref that is also providing necessary parameters -->
-								<a ui-sref="details({contactId:item.EmployeeId})">
-									<b> {{item.FirstName}} </b>
-									<br/>
-									<small>{{item.Phone}}</small>
-								</a>
-												 
-							</li>
+			 
+				<div class="col-md-11 col-sm-11">
+					<div class="slide" ui-view></div>
+				</div>
+				
+				<div class="col-md-1 col-sm-1">
+					<div class="pa-sidebar well well-small">					
+						<ul class="nav nav-list">						
+                            <li ng-class="{ active: $state.includes('contacts.list') }"><a ui-sref="contacts.list" ui-sref-opts="{reload: true}"><b>#</b></a></li>							
+							<li ng-repeat="item in AlphabetList" ui-sref-active="active">
+									<a ui-sref="contacts.sorted({charId:item})"> <b>{{item}}</b></a>
+							</li>					
 						</ul>
-								
-						<div class="" id="loader">
-							<img src="./image/loading.gif" height="40" width="40"/>
-							LOADING...
-						</div>					
+					  <hr>								  
 					</div>
-				</div>
-				<div class="col-md-1">
-					<ul class="nav nav-list">
-						<li><a ui-sref="#">#</a></li>
-						<li ng-repeat="alphbet in Alphabetlist">
-						<a ng-click="test(alphbet)">{{alphbet}} </a></li>
-						
-					</ul>
-				</div>
-			</div>
-		</div>
-		
+				</div>		
+				
+				
+							
+		</div>			
 	</div>
 
    
